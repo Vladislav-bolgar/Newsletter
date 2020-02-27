@@ -24,7 +24,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.newsletter.NewsActivity;
+import com.example.newsletter.NewsOpenActivity;
 import com.example.newsletter.R;
+import com.example.newsletter.RegistrationActivity;
 import com.example.newsletter.ui.login.LoginViewModel;
 import com.example.newsletter.ui.login.LoginViewModelFactory;
 
@@ -35,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         Intent intent = new Intent(LoginActivity.this, NewsActivity.class);
-        startActivity(intent);
+        //startActivity(intent);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -45,7 +47,19 @@ public class LoginActivity extends AppCompatActivity {
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
+        final Button registrationButton = findViewById(R.id.registrationButton);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+
+
+
+        registrationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
