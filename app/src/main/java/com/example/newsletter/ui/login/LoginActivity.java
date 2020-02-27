@@ -2,6 +2,7 @@ package com.example.newsletter.ui.login;
 
 import android.app.Activity;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -50,6 +51,9 @@ public class LoginActivity extends AppCompatActivity {
         final Button registrationButton = findViewById(R.id.registrationButton);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
+
+        //ActionBar actionBar = getActionBar();
+        //actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         registrationButton.setOnClickListener(new View.OnClickListener() {
