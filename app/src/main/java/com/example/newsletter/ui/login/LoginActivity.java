@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -22,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.newsletter.NewsActivity;
 import com.example.newsletter.R;
 import com.example.newsletter.ui.login.LoginViewModel;
 import com.example.newsletter.ui.login.LoginViewModelFactory;
@@ -32,6 +34,9 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Intent intent = new Intent(LoginActivity.this, NewsActivity.class);
+        startActivity(intent);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
@@ -74,7 +79,11 @@ public class LoginActivity extends AppCompatActivity {
                 setResult(Activity.RESULT_OK);
 
                 //Complete and destroy login activity once successful
-                finish();
+
+                Intent intent = new Intent(LoginActivity.this, NewsActivity.class);
+                startActivity(intent);
+
+                //finish();
             }
         });
 
