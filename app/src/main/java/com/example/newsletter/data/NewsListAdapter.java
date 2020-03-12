@@ -139,24 +139,6 @@ public class NewsListAdapter  extends ArrayAdapter<New> {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         return convertView;
     }
 }
