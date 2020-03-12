@@ -121,7 +121,7 @@ public class NewsListAdapter  extends ArrayAdapter<New> {
         }
 
 
-        holder.name.setOnClickListener(new View.OnClickListener() {
+        convertView.findViewById(R.id.cardPost).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
