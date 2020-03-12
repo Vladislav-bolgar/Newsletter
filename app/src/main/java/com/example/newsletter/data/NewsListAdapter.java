@@ -2,6 +2,8 @@ package com.example.newsletter.data;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,7 +19,10 @@ import androidx.annotation.NonNull;
 import com.example.newsletter.NewsOpenActivity;
 import com.example.newsletter.R;
 import com.example.newsletter.data.model.New;
+import com.squareup.picasso.Picasso;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +38,7 @@ public class NewsListAdapter  extends ArrayAdapter<New> {
      */
     private static class ViewHolder {
         TextView name;
-        TextView birthday;
-        TextView sex;
+        ImageView avatar;
     }
 
     /**
@@ -73,8 +78,9 @@ public class NewsListAdapter  extends ArrayAdapter<New> {
             convertView = inflater.inflate(mResource, parent, false);
             holder= new ViewHolder();
             holder.name = (TextView) convertView.findViewById(R.id.textView1);
-            holder.birthday = (TextView) convertView.findViewById(R.id.textView2);
-            holder.sex = (TextView) convertView.findViewById(R.id.textView3);
+            holder.avatar = (ImageView) convertView.findViewById(R.id.avatarView);
+            //holder.birthday = (TextView) convertView.findViewById(R.id.textView2);
+            //holder.sex = (TextView) convertView.findViewById(R.id.textView3);
 
 
 
@@ -99,11 +105,20 @@ public class NewsListAdapter  extends ArrayAdapter<New> {
 
 
         holder.name.setText(person.getName());
-        holder.birthday.setText(person.getContent());
-        holder.sex.setText(person.getLink());
+        //holder.birthday.setText(person.getContent());
+        //holder.sex.setText(person.getLink());
 
 
 
+        Picasso.get().load("https://palemiya.com/assets/portfolio-headers/ibs.2019.png").into(holder.avatar);
+
+        try {
+            //URL url = new URL("https://palemiya.com/assets/portfolio-headers/ibs.2019.png");
+            //Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            //holder.avatar.setImageBitmap(bmp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         holder.name.setOnClickListener(new View.OnClickListener() {
