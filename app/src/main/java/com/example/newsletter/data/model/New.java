@@ -5,12 +5,14 @@ public class New {
     private String name;
     private String content;
     private String link;
+    private String avatar_link;
 
-    public New(Integer id, String name, String content,  String link) {
+    public New(Integer id, String name, String content,  String link, String avatar_link) {
         this.id = id;
         this.content = content;
         this.name = name;
         this.link = link;
+        this.avatar_link = avatar_link;
     }
 
     public Integer getId() {
@@ -43,5 +45,13 @@ public class New {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String getAvatarLink() {
+        return avatar_link;
+    }
+
+    public void setAvatarLink(String avatar_link) {
+        this.avatar_link = avatar_link;
     }
 }

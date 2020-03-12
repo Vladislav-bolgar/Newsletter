@@ -60,10 +60,11 @@ public class NewsListAdapter  extends ArrayAdapter<New> {
         Integer id = getItem(position).getId();
         String name = getItem(position).getName();
         String content = getItem(position).getContent();
+        String avatarLink = getItem(position).getAvatarLink();
         final String link = getItem(position).getLink();
 
         //Create the person object with the information
-        New person = new New(id, name,content,link);
+        New person = new New(id, name,content,link, avatarLink);
 
         //create the view result for showing the animation
         final View result;
@@ -110,7 +111,7 @@ public class NewsListAdapter  extends ArrayAdapter<New> {
 
 
 
-        Picasso.get().load("https://palemiya.com/assets/portfolio-headers/ibs.2019.png").into(holder.avatar);
+        Picasso.get().load( person.getAvatarLink() ).into(holder.avatar);
 
         try {
             //URL url = new URL("https://palemiya.com/assets/portfolio-headers/ibs.2019.png");

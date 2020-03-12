@@ -124,7 +124,9 @@ public class NewsActivity extends AppCompatActivity {
             String name = jsonObject.getString("name");
             String content = jsonObject.getString("content");
             String link = jsonObject.getString("link");
-            New rquestPost = new New(id, name,content,link);
+            String avatar_link = jsonObject.getString("avatar_link");
+
+            New rquestPost = new New(id, name,content,link, avatar_link);
             return rquestPost;
         } catch (final JSONException e){
             return null;
