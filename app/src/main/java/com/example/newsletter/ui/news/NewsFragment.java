@@ -2,6 +2,10 @@ package com.example.newsletter.ui.news;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.AlarmManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +20,7 @@ import android.widget.ListView;
 import com.example.newsletter.R;
 import com.example.newsletter.data.NewsListAdapter;
 import com.example.newsletter.data.model.New;
+import com.example.newsletter.data.model.Receiver;
 
 import java.util.ArrayList;
 
@@ -31,6 +36,7 @@ public class NewsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
 
 
         ListView mListView = (ListView) container.findViewById(R.id.listView);
@@ -75,6 +81,7 @@ public class NewsFragment extends Fragment {
 
 
 
+
         return inflater.inflate(R.layout.news_fragment, container, false);
     }
 
@@ -84,5 +91,7 @@ public class NewsFragment extends Fragment {
         mViewModel = ViewModelProviders.of(this).get(NewsViewModel.class);
         // TODO: Use the ViewModel
     }
+
+
 
 }

@@ -1,10 +1,20 @@
 package com.example.newsletter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -19,6 +29,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.newsletter.data.NewsListAdapter;
 import com.example.newsletter.data.model.New;
+import com.example.newsletter.data.model.PushNotificationManager;
+import com.example.newsletter.data.model.Receiver;
 import com.example.newsletter.ui.login.LoginActivity;
 import com.example.newsletter.ui.news.NewsFragment;
 
@@ -86,11 +98,23 @@ public class NewsActivity extends AppCompatActivity {
         queue.add(stringRequest);
 
 
+
+
+
+
+
+
+
+        PushNotificationManager notificationManager = new PushNotificationManager(this);
+        notificationManager.CreateNotificationChannel("Новый рецепт", "Появлися новый рецепт «Крутые крылышки Волнова»");
+
+
         //Intent intent = new Intent(NewsActivity.this, NewsOpenActivity.class);
         //startActivity(intent);
 
-
     }
+
+
 
 
 
@@ -107,4 +131,16 @@ public class NewsActivity extends AppCompatActivity {
         }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }
